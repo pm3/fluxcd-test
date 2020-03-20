@@ -6,9 +6,9 @@ spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /aa
         backend:
-          serviceName: demo
+          serviceName: hello
           servicePort: 80
 ---
 apiVersion: v1

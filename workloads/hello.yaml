@@ -61,15 +61,15 @@ kind: ConfigMap
 metadata:
   name: hello-config
 data:
-  tkw.properties: /
+  tkw.properties: |-
     color=purple
     how=fairlyNice
     textmode=true
-  mail-all.properties: /
+  mail-all.properties: |-
     color=purple
     how=fairlyNice
     textmode=true
-  jdbc-tkw.properties: /
+  jdbc-tkw.properties: |-
     color=purple
     how=fairlyNice
     textmode=true

@@ -62,14 +62,14 @@ metadata:
   name: hello-config
 data:
   tkw.properties: /
-    color: purple
-    how: fairlyNice
-    textmode: "true"
+    color=purple
+    how=fairlyNice
+    textmode=true
   mail-all.properties: /
-    color: purple
-    how: fairlyNice
-    textmode: "true"
+    color=purple
+    how=fairlyNice
+    textmode=true
   jdbc-tkw.properties: /
-    color: purple
-    how: fairlyNice
-    textmode: "true"
+    color=purple
+    how=fairlyNice
+    textmode=true

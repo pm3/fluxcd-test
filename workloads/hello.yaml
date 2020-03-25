@@ -48,3 +48,28 @@ spec:
           ports:
             - name: http
               containerPort: 80
+          volumeMounts:
+          - name: config-volume
+            mountPath: /tmp/
+  volumes:
+    - name: config-volume
+      configMap:
+        name: hello-config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-config
+data:
+  tkw.properties: /
+    color: purple
+    how: fairlyNice
+    textmode: "true"
+  mail-all.properties: /
+    color: purple
+    how: fairlyNice
+    textmode: "true"
+  jdbc-tkw.properties: /
+    color: purple
+    how: fairlyNice
+    textmode: "true"

@@ -1,3 +1,4 @@
+---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -28,6 +29,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tkw
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   selector:
     matchLabels:
@@ -41,20 +44,20 @@ spec:
         tier: frontend
     spec:
       containers:
-        - name: tkw
-          image: "astonunion.azurecr.io/tkw:1.8-SNAPSHOT"
-          ports:
-            - name: http
-              containerPort: 8080
-          volumeMounts:
-          - name: tkw-config-volume
-            mountPath: /tmp/conf
-      volumes:
+      - name: tkw
+        image: "astonunion.azurecr.io/tkw:1.8-SNAPSHOT"
+        ports:
+        - name: http
+          containerPort: 8080
+        volumeMounts:
         - name: tkw-config-volume
-          configMap:
-            name: tkw-config
+          mountPath: /tmp/conf
+      volumes:
+      - name: tkw-config-volume
+        configMap:
+          name: tkw-config
       imagePullSecrets:
-        - name: astonunion
+      - name: astonunion
 ---
 apiVersion: v1
 kind: ConfigMap

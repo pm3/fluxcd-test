@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
         - name: hello
-          image: "gcr.io/google-samples/hello-go-gke:1.0"
+          image: "astonunion.azurecr.io/tkw:1.8-SNAPSHOT"
           ports:
             - name: http
               containerPort: 80
@@ -64,12 +64,3 @@ data:
   app.tkw.properties: |-
     a=aa3
 	b=bb4
-	c=5
-  mail.all.properties: |-
-	smtp.host=localhost
-	smtp.port=23
-  jdbc.tkw.properties: |-
-	url=postgres
-	user=aa
-	password=aa
-

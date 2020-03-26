@@ -1,65 +1,63 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: demo
+  name: tkw
 spec:
   rules:
   - http:
       paths:
-      - path: /aa
+      - path: /tkw
         backend:
-          serviceName: hello
-          servicePort: 80
+          serviceName: tkw
+          servicePort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello
+  name: tkw
 spec:
   selector:
-    app: hello
-    tier: backend
+    app: tkw
+    tier: frontend
   ports:
   - protocol: TCP
-    port: 80
+    port: 8080
     targetPort: http
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello
+  name: tkw
 spec:
   selector:
     matchLabels:
-      app: hello
-      tier: backend
-      track: stable
+      app: tkw
+      tier: frontend
   replicas: 1
   template:
     metadata:
       labels:
-        app: hello
-        tier: backend
-        track: stable
+        app: tkw
+        tier: frontend
     spec:
       containers:
-        - name: hello
+        - name: tkw
           image: "astonunion.azurecr.io/tkw:1.8-SNAPSHOT"
           ports:
             - name: http
-              containerPort: 80
+              containerPort: 8080
           volumeMounts:
-          - name: config-volume
-            mountPath: /tmp/props
+          - name: tkw-config-volume
+            mountPath: /tmp/conf
       volumes:
-        - name: config-volume
+        - name: tkw-config-volume
           configMap:
-            name: config-hello
+            name: tkw-config
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: config-hello
+  name: tkw-config
 data:
   app.tkw.properties: |-
     a=aa3

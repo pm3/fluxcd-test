@@ -50,49 +50,26 @@ spec:
               containerPort: 80
           volumeMounts:
           - name: config-volume
-            mountPath: /tmp/props/twk
-          volumeMounts:
-          - name: config-volume-mail
-            mountPath: /tmp/props/mail-all
-          volumeMounts:
-          - name: config-volume-jdbc
-            mountPath: /tmp/props/jdbc
+            mountPath: /tmp/props
       volumes:
-        - name: config-volume-hello/jdbc
+        - name: config-volume
           configMap:
             name: config-hello
-      volumes:
-        - name: config-volume-hello-mail
-          configMap:
-            name: config-hello-mail
-      volumes:
-        - name: config-volume-hello-jdbc
-          configMap:
-            name: config-hello-jdbc
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-hello
 data:
-  color:purple
-  how:fairlyNice
-  textmode:true
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-hello-mail
-data:
-  color:purple
-  how:fairlyNice
-  textmode:true
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-hello-jdbc
-data:
-  color:purple
-  how:fairlyNice
-  textmode:true
+  app.tkw.properties: |-
+    a=aa3
+	b=bb4
+	c=5
+  mail.all.properties: |-
+	smtp.host=localhost
+	smtp.port=23
+  jdbc.tkw.properties: |-
+	url=postgres
+	user=aa
+	password=aa
+

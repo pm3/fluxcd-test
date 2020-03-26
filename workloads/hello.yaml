@@ -45,7 +45,7 @@ spec:
     spec:
       containers:
       - name: tkw
-        image: "astonunion.azurecr.io/tkw:1.8-SNAPSHOT"
+        image: "astonunion.azurecr.io/tkw:1.8"
         ports:
         - name: http
           containerPort: 8080

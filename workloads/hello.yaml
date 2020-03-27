@@ -45,7 +45,8 @@ spec:
     spec:
       containers:
       - name: tkw
-        image: "astonunion.azurecr.io/tkw:1.9"
+        image: "astonunion.azurecr.io/tkw:1.10-SNAPSHOT"
+        imagePullPolicy: Always
         ports:
         - name: http
           containerPort: 8080

@@ -29,8 +29,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tkw
-  annotations:
-    fluxcd.io/automated: 'true'
 spec:
   selector:
     matchLabels:

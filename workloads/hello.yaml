@@ -69,4 +69,4 @@ data:
     a=aa3
     b=bb4
   env: |-
-    JAVA_OPTS='"-server -Xmx256m"'
+    XJAVA_OPTS="-server -Xmx256m"

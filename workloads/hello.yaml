@@ -64,10 +64,9 @@ kind: ConfigMap
 metadata:
   name: tkw-config
 data:
-  tkw.path: /test-kubernetes-war
+  tkw.war.path: /test-kubernetes-war
   app.tkw.properties: |-
     a=aa3
     b=bb4
   env: |-
-    JAVA_OPTS=''
-    TEST=1
+    JAVA_OPTS="-server -Xmx256m"

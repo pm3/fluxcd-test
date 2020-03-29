@@ -47,6 +47,9 @@ spec:
       - name: tkw
         image: "astonunion.azurecr.io/tkw:1.12-SNAPSHOT"
         args: [ "tkw.war=test-kubernetes-war" ]
+        env:
+        - name: JAVA_OPTS
+          value: "-Xms128m -Xmx128m -Da=a"
         imagePullPolicy: Always
         ports:
         - name: http

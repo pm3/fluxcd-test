@@ -46,7 +46,7 @@ spec:
       containers:
       - name: tkw
         image: "astonunion.azurecr.io/tkw:1.12-SNAPSHOT"
-        command: ["bin/run"]
+        command: ["bin/run.sh"]
         args: [ "tkw.war=test-kubernetes-war" ]
         imagePullPolicy: Always
         ports:

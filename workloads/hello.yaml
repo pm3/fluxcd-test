@@ -41,12 +41,12 @@ spec:
         app: tkw
         tier: frontend
       annotations:
-        configmap.reloader.stakater.com/reload: "tkw-config"
+#        configmap.reloader.stakater.com/reload: "tkw-config"
     spec:
       containers:
       - name: tkw
         image: "astonunion.azurecr.io/tkw:1.11-SNAPSHOT"
-        imagePullPolicy: Always
+#        imagePullPolicy: Always
         ports:
         - name: http
           containerPort: 8080
@@ -57,8 +57,8 @@ spec:
       - name: tkw-config-volume
         configMap:
           name: tkw-config
-      imagePullSecrets:
-      - name: astonunion
+#      imagePullSecrets:
+#      - name: astonunion
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -70,5 +70,5 @@ data:
     a=aa3
     b=bb4
   env: |-
-    JAVA_OPTS=-Da=a -server -Xmx256m
+    JAVA_OPTS=-Xms128m -Xmx128m
     END

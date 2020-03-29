@@ -69,7 +69,6 @@ data:
   app.tkw.properties: |-
     a=aa3
     b=bb4
-    c=1
   env: |-
     JAVA_OPTS=-Xms128m -Xmx128m
     END

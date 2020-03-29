@@ -57,8 +57,8 @@ spec:
       - name: tkw-config-volume
         configMap:
           name: tkw-config
-#      imagePullSecrets:
-#      - name: astonunion
+      imagePullSecrets:
+      - name: astonunion
 ---
 apiVersion: v1
 kind: ConfigMap

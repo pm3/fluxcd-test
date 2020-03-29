@@ -42,6 +42,8 @@ spec:
         tier: frontend
       annotations:
 #        configmap.reloader.stakater.com/reload: "tkw-config"
+        digest.reload.aston: true
+        configMap.reload.aston: tkw-config
     spec:
       containers:
       - name: tkw

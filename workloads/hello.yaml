@@ -71,3 +71,4 @@ data:
     b=bb4
   env: |-
     JAVA_OPTS=-server -Xmx256m
+    END

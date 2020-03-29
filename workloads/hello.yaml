@@ -49,7 +49,7 @@ spec:
         args: [ "tkw.war=test-kubernetes-war" ]
         env:
         - name: JAVA_OPTS
-          value: "-Xms128m -Xmx128m -Da=a"
+          value: "-Xms128m -Xmx128m"
         imagePullPolicy: Always
         ports:
         - name: http
@@ -69,7 +69,6 @@ kind: ConfigMap
 metadata:
   name: tkw-config
 data:
-  tkw.war.path: /test-kubernetes-war
   app.tkw.properties: |-
     a=aa3
     b=bb4

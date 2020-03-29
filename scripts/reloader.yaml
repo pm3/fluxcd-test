@@ -1,0 +1,25 @@
+# Source: reloader/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reloader-reloader
+  namespace: flux
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: reloader-reloader
+  template:
+    metadata:
+      labels:
+        app: reloader-reloader
+    spec:
+      containers:
+      - env:
+        image: "stakater/reloader:v0.0.57"
+        imagePullPolicy: IfNotPresent
+        name: reloader-reloader
+        args:
+      serviceAccountName: flux
+

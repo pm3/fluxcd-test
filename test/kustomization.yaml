@@ -10,6 +10,7 @@ patchesStrategicMerge:
 
 
 images:
+# aplikacia cestocne poistenie
 - name: astonunion.azurecr.io/tkw
   newName: astonunion.azurecr.io/tkw
   newTag: 1.13

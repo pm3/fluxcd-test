@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+- ../base
+
+patchesStrategicMerge:
+- custom-env.yaml
+- database-secret.yaml
+
+
+images:
+- name: astonunion.azurecr.io/tkw
+  newName: astonunion.azurecr.io/tkw
+  newTag: 1.13
+
+configMapGenerator:	
+- name: tkw-map	
+  literals:	
+    - app.tkw.properties: |-
+      url=http://production.sk/tkw/

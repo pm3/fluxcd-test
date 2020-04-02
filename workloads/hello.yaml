@@ -57,10 +57,15 @@ spec:
         volumeMounts:
         - name: tkw-config-volume
           mountPath: /tmp/conf
+        - name: tkw-jdbc-volume
+          mountPath: /tmp/conf1
       volumes:
       - name: tkw-config-volume
         configMap:
           name: tkw-config
+      - name: tkw-jdbc-volume
+        configMap:
+          name: tkw-jdbc
       imagePullSecrets:
       - name: astonunion
 ---
@@ -73,3 +78,15 @@ data:
     a=aa3
     b=bb4
     c=3
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tkw-jdbc
+data:
+  jdbc.tkw.properties: |-
+    a=aa3
+    c=3
+
+
+

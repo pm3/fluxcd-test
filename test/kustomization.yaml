@@ -13,7 +13,7 @@ images:
 # aplikacia cestocne poistenie
 - name: astonunion.azurecr.io/tkw
   newName: astonunion.azurecr.io/tkw
-  newTag: 1.13
+  newTag: 1.14
 
 configMapGenerator:	
 - name: tkw-map	
